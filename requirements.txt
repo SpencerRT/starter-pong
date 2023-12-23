@@ -1,0 +1,8 @@
+IPython
+ipycanvas
+ipykernel
+ipywidgets
+jupyter_client
+jupyter_core
+pygame
+traitlets
