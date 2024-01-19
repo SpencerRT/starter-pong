@@ -43,13 +43,13 @@ class Pong:
 
     def initialize_pygame(self):
         print("[pygame]: Initializing ...")
+        pygame.init()
+        self.clock = pygame.time.Clock()
+        screen_width = self.settings.getint("Screen", "width")
+        screen_height = self.settings.getint("Screen", "height")
+        self.screen = pygame.display.set_mode((screen_width, screen_height))
 
-        # pygame initialization goes here
-
-        # Quiz 2 - Getting a value from settings.ini
-        # screen_width = (value from settings.ini)
-        # screen_height = (value from settings.ini)
-        # print(f"[pygame]: Screen dimensions {screen_width} x {screen_height}")
+        print(f"[pygame]: Screen dimensions {screen_width} x {screen_height}")
 
         print("[pygame]: Initialization Complete.")
 
@@ -57,7 +57,16 @@ class Pong:
         print("[PONG]: Game has started.")
 
         # Quiz 3: Starting the Game Loop
-        # game loop goes here
+        self.is_running = True
+
+        while self.is_running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.is_running = False
+
+            self.screen.fill("white")
+            pygame.display.flip()
+
 
         print("[PONG]: Game has ended.")
 
@@ -72,3 +81,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    
+
+ 
